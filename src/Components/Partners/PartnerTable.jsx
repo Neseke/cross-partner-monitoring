@@ -16,7 +16,9 @@ export default class PartnerTable extends Component {
         <tbody>
           {partners.map(partner => {
             const props = Object.getOwnPropertyNames(partner);
-            return <tr key={partner}>{props.map(prop => <td key={prop}>{partner[prop]}</td>)}</tr>;
+            return (
+              <tr key={partner.uri}>{props.map(prop => <td key={prop}>{partner[prop]}</td>)}</tr>
+            );
           })}
         </tbody>
       </Table>
