@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Panel } from 'react-bootstrap';
+import { BrowserRouter as Router, Link } from 'react-router-dom';
 
 import PartnerTable from './PartnerTable';
 import PageHeader from '../Misc/SubHeader';
@@ -11,15 +12,24 @@ const MESSAGE = 'Following Partners already exist';
 
 export default class Partners extends Component {
   render() {
+    const partners = getPartners().map(partner => {
+      return {
+        ...partner,
+        url: (
+          <Router>
+            <Link to={partner.url}>{partner.reportName}</Link>
+          </Router>
+        )
+      };
+    });
+
     return (
       <BasePanel>
         <Panel.Heading>
           <PageHeader message={MESSAGE} />
         </Panel.Heading>
         <Panel.Body>
-          <div>
-            <PartnerTable partners={getPartners()} />
-          </div>
+          <PartnerTable partners={partners} />
         </Panel.Body>
       </BasePanel>
     );

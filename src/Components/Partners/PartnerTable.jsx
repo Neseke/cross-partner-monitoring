@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
 import { Table } from 'react-bootstrap';
 
-import { getPartners } from './utils';
-
 export default class PartnerTable extends Component {
   render() {
-    const partners = getPartners();
+    const { partners } = this.props;
     return (
       <Table responsive>
         <thead>
