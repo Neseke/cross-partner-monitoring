@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import Partner from '../Partners/Partner';
 import Dashboard from '../Partners/Dashboard';
+import NoMatch from './NoMatch';
 
 import { getPartners } from '../Partners/utils/partners';
 
@@ -11,12 +12,13 @@ export default class Overview extends Component {
     const partners = getPartners();
     return (
       <Router>
-        <div>
+        <Switch>
           <Route path="/partners" component={Partner} />
           {partners.map(partner => (
             <Route path={`/reports/${partner.uri}`} component={Dashboard} />
           ))}
-        </div>
+          <Route component={NoMatch} />
+        </Switch>
       </Router>
     );
   }

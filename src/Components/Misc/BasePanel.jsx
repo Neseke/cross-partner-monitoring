@@ -3,6 +3,6 @@ import { Panel } from 'react-bootstrap';
 
 export default class BasePanel extends Component {
   render() {
-    return <Panel>{this.props.children}</Panel>;
+    return <Panel style={{ margin: '0px auto' }}>{this.props.children}</Panel>;
   }
 }
