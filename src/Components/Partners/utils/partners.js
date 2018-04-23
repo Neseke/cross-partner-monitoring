@@ -14,7 +14,7 @@ function createReactRouterLink(uri) {
     <Router>
       {/* we don't want a state, so we can simply reload the window to match the
       url in the browser window */}
-      <Link to={url} onClick={() => window.location.reload()}>
+      <Link to={`/reports/${uri}`} onClick={() => window.location.reload()}>
         {url}
       </Link>
     </Router>
