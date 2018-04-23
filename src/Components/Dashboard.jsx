@@ -4,6 +4,8 @@ import { getIframeByUri } from './Partners/utils';
 
 export default class Dashboard extends Component {
   render() {
-    return getIframeByUri('ath') || null;
+    const { path } = this.props.match;
+    const uri = path.replace('/reports/', '');
+    return getIframeByUri(uri) || null;
   }
 }

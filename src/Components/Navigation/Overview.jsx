@@ -11,6 +11,7 @@ export default class Overview extends Component {
         <div>
           <Route path="/partners" component={Partner} />
           <Route path="/reports/ath" component={Dashboard} />
+          <Route path="/reports/ehf" component={Dashboard} />
         </div>
       </Router>
     );
