@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Partner from '../Partners/Partner';
 import Dashboard from '../Dashboard';
 
-export default class NavigationRouter extends Component {
+export default class Overview extends Component {
   render() {
     return (
       <Router>

@@ -17,7 +17,9 @@ export default class Partners extends Component {
         ...partner,
         url: (
           <Router>
-            <Link to={partner.url}>{partner.reportName}</Link>
+            <Link to={partner.url} onClick={() => window.location.reload()}>
+              {`athletia.net${partner.url}`}
+            </Link>
           </Router>
         )
       };
