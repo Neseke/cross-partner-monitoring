@@ -1,6 +1,6 @@
 import { Component } from 'react';
 
-import { getIframeByUri } from './Partners/utils';
+import { getIframeByUri } from './Partners/utils/iframe';
 
 export default class Dashboard extends Component {
   render() {

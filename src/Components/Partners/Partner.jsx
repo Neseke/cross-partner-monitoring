@@ -5,7 +5,7 @@ import PartnerTable from './PartnerTable';
 import PageHeader from '../Misc/SubHeader';
 import BasePanel from '../Misc/BasePanel';
 
-import { getPartners } from './utils';
+import { getPartners } from './utils/partners';
 
 const MESSAGE = 'Following Partners already exist';
 
