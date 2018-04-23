@@ -7,7 +7,7 @@ import BasePanel from '../Misc/BasePanel';
 
 import { getPartners } from './utils/partners';
 
-const MESSAGE = 'Following Partners already exist';
+const MESSAGE = 'Partner Reports Managed by this App'.toUpperCase();
 
 export default class Partners extends Component {
   render() {

@@ -2,8 +2,8 @@ import React from 'react';
 
 import partners from '../../../partners.json';
 
-export function getIframes() {
-  if (partners.length < 1) return [];
+function getIframes() {
+  if (partners.length < 1) return null;
 
   return partners.map(partner => {
     return {
@@ -19,10 +19,8 @@ export function getIframes() {
   });
 }
 
-export function getIframeByUri(uri = '') {
+export default function getIframeByUri(uri = '') {
   const iframes = getIframes();
   // get the specific iframe for the given uri
   return iframes.filter(partner => partner.uri === uri)[0].iframe;
 }
-
-export default { getIframeByUri };

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 import Partner from '../Partners/Partner';
-import Dashboard from '../Dashboard';
+import Dashboard from '../Partners/Dashboard';
 
 import { getPartners } from '../Partners/utils/partners';
 
