@@ -2,18 +2,20 @@ import React from 'react';
 import { BrowserRouter as Router, Link } from 'react-router-dom';
 
 import partners from '../../../partners.json';
+import { SERVERPATH } from '../../globals';
 
 /**
- * @param { String } url - Where the url should direct to
+ * @param { String } uri - Where the url should direct to
  * @returns { Link } - A valid react-router Link
  */
-function createReactRouterLink(url) {
+function createReactRouterLink(uri) {
+  const url = `${SERVERPATH}/${uri}`;
   return (
     <Router>
       {/* we don't want a state, so we can simply reload the window to match the
       url in the browser window */}
       <Link to={url} onClick={() => window.location.reload()}>
-        {`athletia.net${url}`}
+        {url}
       </Link>
     </Router>
   );
@@ -29,7 +31,7 @@ export function getPartners() {
   return partners.map(partner => {
     return {
       ...partner,
-      url: createReactRouterLink(partner.url)
+      url: createReactRouterLink(partner.uri)
     };
   });
 }
