@@ -11,6 +11,7 @@ const MESSAGE = 'Partner Reports Managed by this App'.toUpperCase();
 
 export default class Partners extends Component {
   render() {
+    console.log(process.env);
     const partners = getPartners();
 
     return (
