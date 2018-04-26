@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import GoogleLogin from 'react-google-login';
 
-const responseGoogle = response => {
-  console.log(response);
-};
+import { onSuccessfulLogin, onFailureLogin } from './utils';
 
 class LoginButton extends Component {
   render() {
@@ -11,8 +9,8 @@ class LoginButton extends Component {
       <GoogleLogin
         clientId={process.env.REACT_APP_CLIENT_ID}
         buttonText="Login"
-        onSuccess={responseGoogle}
-        onFailure={responseGoogle}
+        onSuccess={onSuccessfulLogin}
+        onFailure={onFailureLogin}
       />
     );
   }
