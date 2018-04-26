@@ -3,14 +3,69 @@ import React, { Component } from 'react';
 import Overview from './Components/Navigation/Overview';
 import LoginButton from './Components/Google/LoginButton';
 
+import getLocalStorageItems from './utils';
+
+const LOGIN_STORAGE = window.localStorage;
+
 require('dotenv').config('../.env');
 
 export default class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isLoggedIn: false
+    };
+
+    this.onSuccessfulLogin = this.onSuccessfulLogin.bind(this);
+    this.onFailureLogin = this.onFailureLogin.bind(this);
+    this.isLoggedIn = this.isLoggedIn.bind(this);
+  }
+
+  // use this function as callback when the user successfully logged in
+  onSuccessfulLogin(googleAuthResponse) {
+    const { profileObj } = googleAuthResponse;
+    const { name, email } = profileObj; // e.g. "Lukas Höpfner"
+
+    LOGIN_STORAGE.setItem('name', name);
+    LOGIN_STORAGE.setItem('email', email);
+
+    console.log('successfully lggedin');
+
+    this.setState({ isLoggedIn: true });
+  }
+
+  // use this function as callback when the google login failed
+  onFailureLogin(googleAuthResponse) {
+    LOGIN_STORAGE.clear();
+
+    console.log(googleAuthResponse);
+
+    this.setState({
+      isLoggedIn: false
+    });
+  }
+
+  isLoggedIn() {
+    const profileInfos = getLocalStorageItems();
+
+    const { name, email } = profileInfos;
+
+    this.setState({
+      isLoggedIn: !!(name && email) // true, if logged in. Else false.
+    });
+  }
+
   render() {
     return (
       <div>
-        <Overview />
-        <LoginButton />
+        {this.state.isLoggedIn ? (
+          <Overview />
+        ) : (
+          <LoginButton
+            onSuccessfulLogin={this.onSuccessfulLogin}
+            onFailureLogin={this.onFailureLogin}
+          />
+        )}
       </div>
     );
   }
