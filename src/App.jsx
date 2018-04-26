@@ -3,9 +3,7 @@ import React, { Component } from 'react';
 import Overview from './Components/Navigation/Overview';
 import LoginButton from './Components/Google/LoginButton';
 
-import getLocalStorageItems from './utils';
-
-const LOGIN_STORAGE = window.localStorage;
+import { getLocalStorageItems, handleSuccessfullLogin, handleFailureLogin } from './utils';
 
 require('dotenv').config('../.env');
 
@@ -23,18 +21,14 @@ export default class App extends Component {
 
   // use this function as callback when the user successfully logged in
   onSuccessfulLogin(googleAuthResponse) {
-    const { profileObj } = googleAuthResponse;
-    const { name, email } = profileObj; // e.g. "Lukas Höpfner"
-
-    LOGIN_STORAGE.setItem('name', name);
-    LOGIN_STORAGE.setItem('email', email);
+    handleSuccessfullLogin(googleAuthResponse);
 
     this.setState({ isLoggedIn: true });
   }
 
   // use this function as callback when the google login failed
   onFailureLogin() {
-    LOGIN_STORAGE.clear();
+    handleFailureLogin();
 
     this.setState({
       isLoggedIn: false
