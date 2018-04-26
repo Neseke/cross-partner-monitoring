@@ -52,10 +52,6 @@ export default class App extends Component {
   render() {
     return (
       <div>
-<<<<<<< HEAD
-        <Header />
-        <Overview />
-=======
         {this.state.isLoggedIn ? (
           <Overview />
         ) : (
@@ -64,7 +60,6 @@ export default class App extends Component {
             onFailureLogin={this.onFailureLogin}
           />
         )}
->>>>>>> feature/react-router-links-in-partner-table
       </div>
     );
   }
