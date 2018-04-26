@@ -4,6 +4,7 @@ import { Panel, Jumbotron } from 'react-bootstrap';
 
 import LoginButton from './LoginButton';
 import BasePanel from '../Misc/BasePanel';
+import Logo from '../Misc/Logo';
 
 const STYLES = {
   page: {
@@ -14,8 +15,11 @@ const STYLES = {
     borderRadius: '25px'
   },
   text: {
-    color: '#b9ff0f',
+    color: 'white',
     marginBottom: '2%'
+  },
+  accent: {
+    color: '#b9ff0f'
   }
 };
 
@@ -25,9 +29,11 @@ class LoginPage extends Component {
       <BasePanel>
         <Panel.Body style={STYLES.page}>
           <Jumbotron style={STYLES.jumbotron}>
-            <h3 style={STYLES.text}>
-              Before you can get started, we need you to Login with your Google Account
-            </h3>
+            <Logo type="white" position="left" />
+            <h4 style={STYLES.text}>
+              Before you can get started, we need you to Login with your{' '}
+              <u style={STYLES.accent}>Google Account</u>
+            </h4>
             <LoginButton
               onSuccessfulLogin={this.props.onSuccessfulLogin}
               onFailureLogin={this.props.onFailureLogin}

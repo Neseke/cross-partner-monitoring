@@ -9,7 +9,7 @@ class LoginButton extends Component {
         buttonText="Login with Google"
         onSuccess={this.props.onSuccessfulLogin}
         onFailure={this.props.onFailureLogin}
-        // isSignedIn
+        isSignedIn
       />
     );
   }

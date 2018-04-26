@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Panel } from 'react-bootstrap';
 
 import PartnerTable from './PartnerTable';
-import PageHeader from '../Misc/SubHeader';
+import PageHeader from '../Misc/PageHeader';
 import BasePanel from '../Misc/BasePanel';
 
 import { getPartners } from './utils/partners';
