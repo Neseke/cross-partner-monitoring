@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+<<<<<<< HEAD
 import { PageHeader, Grid, Row, Col } from 'react-bootstrap';
 
 import Logo from './Logo';
@@ -15,6 +16,10 @@ const Headline = () => (
     </Row>
   </Grid>
 );
+=======
+
+import { PageHeader } from 'react-bootstrap';
+>>>>>>> feature/react-router-links-in-partner-table
 
 export default class SubHeader extends Component {
   render() {
