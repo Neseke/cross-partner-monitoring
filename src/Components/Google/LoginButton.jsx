@@ -6,9 +6,10 @@ class LoginButton extends Component {
     return (
       <GoogleLogin
         clientId={process.env.REACT_APP_CLIENT_ID}
-        buttonText="Login"
+        buttonText="Login with Google"
         onSuccess={this.props.onSuccessfulLogin}
         onFailure={this.props.onFailureLogin}
+        // isSignedIn
       />
     );
   }

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import Overview from './Components/Navigation/Overview';
-import LoginButton from './Components/Google/LoginButton';
+import LoginPage from './Components/Google/LoginPage';
 
 import { getLocalStorageItems, handleSuccessfullLogin, handleFailureLogin } from './utils';
 
@@ -55,7 +55,7 @@ export default class App extends Component {
         {this.state.isLoggedIn ? (
           <Overview />
         ) : (
-          <LoginButton
+          <LoginPage
             onSuccessfulLogin={this.onSuccessfulLogin}
             onFailureLogin={this.onFailureLogin}
           />
