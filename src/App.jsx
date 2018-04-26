@@ -13,7 +13,7 @@ export default class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      isLoggedIn: false
+      isLoggedIn: this.isLoggedIn()
     };
 
     this.onSuccessfulLogin = this.onSuccessfulLogin.bind(this);
@@ -29,16 +29,12 @@ export default class App extends Component {
     LOGIN_STORAGE.setItem('name', name);
     LOGIN_STORAGE.setItem('email', email);
 
-    console.log('successfully lggedin');
-
     this.setState({ isLoggedIn: true });
   }
 
   // use this function as callback when the google login failed
-  onFailureLogin(googleAuthResponse) {
+  onFailureLogin() {
     LOGIN_STORAGE.clear();
-
-    console.log(googleAuthResponse);
 
     this.setState({
       isLoggedIn: false
@@ -50,9 +46,13 @@ export default class App extends Component {
 
     const { name, email } = profileInfos;
 
+    const isLoggedIn = !!(name && email); // true, if logged in. Else false.
+
     this.setState({
-      isLoggedIn: !!(name && email) // true, if logged in. Else false.
+      isLoggedIn
     });
+
+    return isLoggedIn;
   }
 
   render() {
