@@ -17,8 +17,8 @@ export function handleSuccessfullLogin(googleAuthResponse) {
   const { name, email } = profileObj; // e.g. "Lukas Höpfner"
 
   // the whitelisted email, which are allowed to log in
-  // const whitelist = process.env.REACT_APP_WHITELIST.split(',');
-  const whitelist = ['lukas.hoepfner@zlyde.com'];
+  const whitelist = process.env.REACT_APP_WHITELIST.split(',');
+  // const whitelist = ['lukas.hoepfner@zlyde.com'];
   // is the user who wants to login whitelisted?
   const userIsWhitelisted = whitelist.indexOf(email) !== -1;
 
