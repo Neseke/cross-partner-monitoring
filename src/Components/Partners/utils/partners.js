@@ -10,7 +10,7 @@ const { REACT_APP_SERVER_PATH } = process.env;
  * @returns { Link } - A valid react-router Link
  */
 function createReactRouterLink(uri) {
-  const endpoint = `/reports/${uri}`;
+  const endpoint = `${process.env.PUBLIC_URL}/reports/${uri}`;
   const url = `${REACT_APP_SERVER_PATH}${endpoint}`;
   return (
     <Router>

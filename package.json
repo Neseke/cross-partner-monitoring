@@ -2,6 +2,7 @@
   "name": "react-router",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://www.neseke.github.io/reports",
   "dependencies": {
     "dotenv": "^6.0.0",
     "npm": "^6.0.1",
