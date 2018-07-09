@@ -11,9 +11,9 @@ export default class Overview extends Component {
   render() {
     const partners = getPartners();
     return (
-      <Router>
+      <Router basename="partners">
         <Switch>
-          <Route path="/partners" component={Partner} />
+          <Route path="/overview" component={Partner} />
           {partners.map(partner => (
             <Route key={partner.uri} path={`/reports/${partner.uri}`} component={Dashboard} />
           ))}

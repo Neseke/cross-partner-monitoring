@@ -11,7 +11,8 @@ export default class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      isLoggedIn: false
+      isLoggedIn: false,
+      isAllowedToLogin: true
     };
 
     this.onSuccessfulLogin = this.onSuccessfulLogin.bind(this);
@@ -21,9 +22,11 @@ export default class App extends Component {
 
   // use this function as callback when the user successfully logged in
   onSuccessfulLogin(googleAuthResponse) {
-    handleSuccessfullLogin(googleAuthResponse);
+    const isAllowedToLogin = handleSuccessfullLogin(googleAuthResponse);
 
-    this.setState({ isLoggedIn: true });
+    this.setState({ isAllowedToLogin });
+
+    if (isAllowedToLogin) this.setState({ isLoggedIn: true });
   }
 
   // use this function as callback when the google login failed
@@ -58,6 +61,9 @@ export default class App extends Component {
           <LoginPage
             onSuccessfulLogin={this.onSuccessfulLogin}
             onFailureLogin={this.onFailureLogin}
+            loginErrorMessage={
+              this.state.isAllowedToLogin ? '' : 'You are not allowed to log into this app.'
+            }
           />
         )}
       </div>

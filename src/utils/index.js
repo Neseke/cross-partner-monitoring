@@ -16,8 +16,20 @@ export function handleSuccessfullLogin(googleAuthResponse) {
   const { profileObj } = googleAuthResponse;
   const { name, email } = profileObj; // e.g. "Lukas Höpfner"
 
+  // the whitelisted email, which are allowed to log in
+  // const whitelist = process.env.REACT_APP_WHITELIST.split(',');
+  const whitelist = ['lukas.hoepfner@zlyde.com'];
+  // is the user who wants to login whitelisted?
+  const userIsWhitelisted = whitelist.indexOf(email) !== -1;
+
+  if (!userIsWhitelisted) return false; // if the user is not whitelisted, return false
+
+  // if the user is whitelisted, set items to localStorage ...
   LOGIN_STORAGE.setItem('name', name);
   LOGIN_STORAGE.setItem('email', email);
+
+  // ...and return true
+  return true;
 }
 
 export function handleFailureLogin(googleAuthResponse) {

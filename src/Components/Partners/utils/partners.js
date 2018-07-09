@@ -9,12 +9,13 @@ import { SERVERPATH } from '../../globals';
  * @returns { Link } - A valid react-router Link
  */
 function createReactRouterLink(uri) {
-  const url = `${SERVERPATH}/${uri}`;
+  const endpoint = `/reports/${uri}`;
+  const url = `${SERVERPATH}${endpoint}`;
   return (
     <Router>
       {/* we don't want a state, so we can simply reload the window to match the
       url in the browser window */}
-      <Link to={`/reports/${uri}`} onClick={() => window.location.reload()}>
+      <Link to={endpoint} onClick={() => window.location.reload()}>
         {url}
       </Link>
     </Router>

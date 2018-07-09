@@ -12,7 +12,7 @@ const STYLES = {
   },
   jumbotron: {
     backgroundColor: '#2e2d33',
-    borderRadius: '25px'
+    borderRadius: '5px'
   },
   text: {
     color: 'white',
@@ -30,14 +30,23 @@ class LoginPage extends Component {
         <Panel.Body style={STYLES.page}>
           <Jumbotron style={STYLES.jumbotron}>
             <Logo type="white" position="left" />
-            <h4 style={STYLES.text}>
-              Before you can get started, we need you to Login with your{' '}
-              <u style={STYLES.accent}>Google Account</u>
-            </h4>
-            <LoginButton
-              onSuccessfulLogin={this.props.onSuccessfulLogin}
-              onFailureLogin={this.props.onFailureLogin}
-            />
+            {this.props.loginErrorMessage ? (
+              <div style={STYLES.text}>
+                <p>{this.props.loginErrorMessage}</p>
+                <p>If you think you should be allowed, please contact Lukas.Hoepfner@zlyde.com</p>
+              </div>
+            ) : (
+              <div style={STYLES.text}>
+                <p>
+                  Before you can get started, we need you to Login with your{' '}
+                  <u style={STYLES.accent}>Google Account</u>{' '}
+                </p>
+                <LoginButton
+                  onSuccessfulLogin={this.props.onSuccessfulLogin}
+                  onFailureLogin={this.props.onFailureLogin}
+                />
+              </div>
+            )}
           </Jumbotron>
         </Panel.Body>
       </BasePanel>
