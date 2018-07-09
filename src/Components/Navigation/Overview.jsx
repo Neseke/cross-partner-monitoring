@@ -11,11 +11,11 @@ export default class Overview extends Component {
   render() {
     const partners = getPartners();
     return (
-      <Router basename="/partners">
+      <Router basename="/reports">
         <Switch>
           <Route exact path="/overview" component={Partner} />
           {partners.map(partner => (
-            <Route key={partner.uri} path={`/reports/${partner.uri}`} component={Dashboard} />
+            <Route key={partner.uri} path={`/${partner.uri}`} component={Dashboard} />
           ))}
           <Route component={NoMatch} />
         </Switch>
