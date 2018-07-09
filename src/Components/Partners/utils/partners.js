@@ -3,15 +3,13 @@ import { BrowserRouter as Router, Link } from 'react-router-dom';
 
 import partners from '../../../partners.json';
 
-const { REACT_APP_SERVER_PATH } = process.env;
-
 /**
  * @param { String } uri - Where the url should direct to
  * @returns { Link } - A valid react-router Link
  */
 function createReactRouterLink(uri) {
-  const endpoint = `${process.env.PUBLIC_URL}/reports/${uri}`;
-  const url = `${REACT_APP_SERVER_PATH}${endpoint}`;
+  const endpoint = `${process.env.PUBLIC_URL}/${uri}`;
+  const url = `${process.env.PUBLIC_URL}${endpoint}`;
   return (
     <Router>
       {/* we don't want a state, so we can simply reload the window to match the
