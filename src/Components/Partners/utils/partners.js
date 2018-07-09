@@ -2,7 +2,8 @@ import React from 'react';
 import { BrowserRouter as Router, Link } from 'react-router-dom';
 
 import partners from '../../../partners.json';
-import { SERVERPATH } from '../../globals';
+
+const { REACT_APP_SERVER_PATH } = process.env;
 
 /**
  * @param { String } uri - Where the url should direct to
@@ -10,7 +11,7 @@ import { SERVERPATH } from '../../globals';
  */
 function createReactRouterLink(uri) {
   const endpoint = `/reports/${uri}`;
-  const url = `${SERVERPATH}${endpoint}`;
+  const url = `${REACT_APP_SERVER_PATH}${endpoint}`;
   return (
     <Router>
       {/* we don't want a state, so we can simply reload the window to match the

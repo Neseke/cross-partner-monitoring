@@ -14,7 +14,7 @@ export function getLocalStorageItems() {
 
 export function handleSuccessfullLogin(googleAuthResponse) {
   const { profileObj } = googleAuthResponse;
-  const { name, email } = profileObj; // e.g. "Lukas Höpfner"
+  const { name, email } = profileObj;
 
   // the whitelisted email, which are allowed to log in
   const whitelist = process.env.REACT_APP_WHITELIST.split(',');
