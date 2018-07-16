@@ -9,7 +9,7 @@ import partners from '../../../partners.json';
  */
 function createReactRouterLink(uri) {
   const endpoint = `/reports/${uri}`;
-  const url = `athletia.net${endpoint}`;
+  const url = `${process.env.PUBLIC_URL}${endpoint}`;
   return (
     <Router>
       {/* we don't want a state, so we can simply reload the window to match the
