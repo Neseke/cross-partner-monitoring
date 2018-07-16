@@ -13,9 +13,9 @@ export default class Overview extends Component {
     return (
       <Router>
         <Switch>
-          <Route exact path="/reports/overview" component={Partner} />
+          <Route path="/reports/overview" component={Partner} basename={process.env.PUBLIC_URL} />
           {partners.map(partner => (
-            <Route exact key={partner.uri} path={`/reports/${partner.uri}`} component={Dashboard} />
+            <Route key={partner.uri} path={`/reports/${partner.uri}`} component={Dashboard} />
           ))}
           <Route component={NoMatch} />
         </Switch>
