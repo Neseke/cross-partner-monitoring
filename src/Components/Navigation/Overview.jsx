@@ -10,11 +10,10 @@ import { getPartners } from '../Partners/utils/partners';
 export default class Overview extends Component {
   render() {
     const partners = getPartners();
-    console.log(process.env.PUBLIC_URL);
     return (
-      <Router basename="/reports">
+      <Router>
         <Switch>
-          <Route exact path={`${process.env.PUBLIC_URL}/overview`} component={Partner} />
+          <Route path={`${process.env.PUBLIC_URL}/reports/overview`} component={Partner} />
           {partners.map(partner => (
             <Route
               key={partner.uri}
