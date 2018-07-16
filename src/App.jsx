@@ -5,7 +5,7 @@ import LoginPage from './Components/Google/LoginPage';
 
 import { getLocalStorageItems, handleSuccessfullLogin, handleFailureLogin } from './utils';
 
-// require('dotenv').config('../.env');
+require('dotenv').config('../.env');
 
 export default class App extends Component {
   constructor(props) {

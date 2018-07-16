@@ -10,12 +10,17 @@ import { getPartners } from '../Partners/utils/partners';
 export default class Overview extends Component {
   render() {
     const partners = getPartners();
+    console.log(process.env.PUBLIC_URL);
     return (
-      <Router>
+      <Router basename="/reports">
         <Switch>
-          <Route path="/" component={Partner} basename={process.env.PUBLIC_URL} />
+          <Route exact path={`${process.env.PUBLIC_URL}/overview`} component={Partner} />
           {partners.map(partner => (
-            <Route key={partner.uri} path={`/reports/${partner.uri}`} component={Dashboard} />
+            <Route
+              key={partner.uri}
+              path={`${process.env.PUBLIC_URL}/${partner.uri}`}
+              component={Dashboard}
+            />
           ))}
           <Route component={NoMatch} />
         </Switch>
