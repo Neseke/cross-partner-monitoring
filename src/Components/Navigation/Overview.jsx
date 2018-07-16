@@ -13,7 +13,7 @@ export default class Overview extends Component {
     return (
       <Router>
         <Switch>
-          <Route path="/reports/overview" component={Partner} basename={process.env.PUBLIC_URL} />
+          <Route path="/" component={Partner} basename={process.env.PUBLIC_URL} />
           {partners.map(partner => (
             <Route key={partner.uri} path={`/reports/${partner.uri}`} component={Dashboard} />
           ))}
