@@ -8,7 +8,7 @@ import partners from '../../../partners.json';
  * @returns { Link } - A valid react-router Link
  */
 function createReactRouterLink(uri) {
-  const endpoint = `${process.env.PUBLIC_URL}/${uri}`;
+  const endpoint = `${process.env.PUBLIC_URL}/reports/${uri}`;
   const url = `${process.env.PUBLIC_URL}${endpoint}`;
   return (
     <Router>

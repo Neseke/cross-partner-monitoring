@@ -17,7 +17,7 @@ export default class Overview extends Component {
           {partners.map(partner => (
             <Route
               key={partner.uri}
-              path={`${process.env.PUBLIC_URL}/${partner.uri}`}
+              path={`${process.env.PUBLIC_URL}/reports/${partner.uri}`}
               component={Dashboard}
             />
           ))}

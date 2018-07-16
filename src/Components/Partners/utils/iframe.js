@@ -22,5 +22,5 @@ function getIframes() {
 export default function getIframeByUri(uri = '') {
   const iframes = getIframes();
   // get the specific iframe for the given uri
-  return iframes.filter(partner => `/${partner.uri}` === uri)[0].iframe;
+  return iframes.filter(partner => `/${partner.uri}` === uri || partner.uri === uri)[0].iframe;
 }
